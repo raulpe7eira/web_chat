@@ -1,5 +1,7 @@
 # WebChat
 
+![Screenshot 2025-01-12 at 10 34 14](https://github.com/user-attachments/assets/ddb2cd47-38ec-408c-a9df-6a94d0f32d37)
+
 To start your Phoenix server:
 
   * Run `mix setup` to install and setup dependencies
