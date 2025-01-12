@@ -15,29 +15,25 @@ defmodule WebChatWeb.ChatbotLive do
         class="flex flex-col flex-grow max-w-xs p-4 overflow-auto max-h-[50vh]"
         phx-update="stream"
       >
+        <div id="initial-message" class="flex w-full mt-2 space-x-3 max-w-xs ml-auto">
+          <img
+            class="flex-shrink-0 h-10 w-10 rounded-full"
+            src="https://lsk-public.b-cdn.net/demo_chatbot.webp"
+            alt=""
+          />
+          <div class="w-full">
+            <div class="bg-gray-300 p-3 rounded-r-lg rounded-bl-lg">
+              <p class="text-sm">Hi. I am here to answer questions about Elixir.</p>
+            </div>
+            <span class="text-xs text-gray-500 leading-none">Now</span>
+          </div>
+        </div>
+
         <div
           :for={{dom_id, message} <- @streams.messages}
           id={dom_id}
           phx-mounted={JS.dispatch("scrollIntoView", to: "##{dom_id}")}
         >
-          <div
-            :if={dom_id == "messages-1"}
-            class="flex w-full mt-2 space-x-3 max-w-xs ml-auto"
-            id="initial-message"
-          >
-            <img
-              class="flex-shrink-0 h-10 w-10 rounded-full"
-              src="https://lsk-public.b-cdn.net/demo_chatbot.webp"
-              alt=""
-            />
-            <div class="w-full">
-              <div class="bg-gray-300 p-3 rounded-r-lg rounded-bl-lg">
-                <p class="text-sm">Hi. I am here to answer questions about Elixir.</p>
-              </div>
-              <span class="text-xs text-gray-500 leading-none">Now</span>
-            </div>
-          </div>
-
           <div
             :if={message.role == "user"}
             class="flex w-full mt-2 space-x-3 max-w-xs ml-auto justify-end"
